@@ -1,0 +1,172 @@
+Temperaturas para BABAHOYO:
+  Semana 1:
+    Lunes: 12.09°C
+    Martes: 21.61°C
+    Miércoles: 12.01°C
+    Jueves: 27.75°C
+    Viernes: 26.09°C
+    Sábado: 26.77°C
+    Domingo: 20.54°C
+  Semana 2:
+    Lunes: 27.35°C
+    Martes: 10.78°C
+    Miércoles: 13.19°C
+    Jueves: 23.30°C
+    Viernes: 19.03°C
+    Sábado: 16.30°C
+    Domingo: 24.03°C
+  Semana 3:
+    Lunes: 15.54°C
+    Martes: 11.22°C
+    Miércoles: 23.00°C
+    Jueves: 11.55°C
+    Viernes: 18.88°C
+    Sábado: 18.27°C
+    Domingo: 23.30°C
+  Semana 4:
+    Lunes: 16.32°C
+    Martes: 25.98°C
+    Miércoles: 22.96°C
+    Jueves: 13.48°C
+    Viernes: 15.63°C
+    Sábado: 24.60°C
+    Domingo: 20.60°C
+
+Temperaturas para GUAYAQUIL:
+  Semana 1:
+    Lunes: 14.32°C
+    Martes: 27.35°C
+    Miércoles: 19.05°C
+    Jueves: 19.54°C
+    Viernes: 10.51°C
+    Sábado: 19.69°C
+    Domingo: 13.38°C
+  Semana 2:
+    Lunes: 17.35°C
+    Martes: 26.78°C
+    Miércoles: 24.24°C
+    Jueves: 20.86°C
+    Viernes: 25.91°C
+    Sábado: 20.20°C
+    Domingo: 12.43°C
+  Semana 3:
+    Lunes: 12.82°C
+    Martes: 17.22°C
+    Miércoles: 23.57°C
+    Jueves: 26.89°C
+    Viernes: 12.21°C
+    Sábado: 16.67°C
+    Domingo: 27.72°C
+  Semana 4:
+    Lunes: 23.78°C
+    Martes: 15.64°C
+    Miércoles: 28.97°C
+    Jueves: 19.84°C
+    Viernes: 16.10°C
+    Sábado: 15.40°C
+    Domingo: 10.89°C
+
+Temperaturas para MANTA:
+  Semana 1:
+    Lunes: 14.77°C
+    Martes: 16.33°C
+    Miércoles: 18.59°C
+    Jueves: 29.46°C
+    Viernes: 22.89°C
+    Sábado: 10.54°C
+    Domingo: 14.46°C
+  Semana 2:
+    Lunes: 18.45°C
+    Martes: 11.73°C
+    Miércoles: 13.38°C
+    Jueves: 26.36°C
+    Viernes: 17.07°C
+    Sábado: 11.43°C
+    Domingo: 10.27°C
+  Semana 3:
+    Lunes: 27.40°C
+    Martes: 18.44°C
+    Miércoles: 13.95°C
+    Jueves: 13.98°C
+    Viernes: 15.59°C
+    Sábado: 12.60°C
+    Domingo: 29.78°C
+  Semana 4:
+    Lunes: 14.51°C
+    Martes: 16.83°C
+    Miércoles: 26.29°C
+    Jueves: 27.55°C
+    Viernes: 25.59°C
+    Sábado: 29.63°C
+    Domingo: 14.22°C
+
+Temperaturas para CUENCA:
+  Semana 1:
+    Lunes: 26.20°C
+    Martes: 19.57°C
+    Miércoles: 27.16°C
+    Jueves: 10.64°C
+    Viernes: 16.78°C
+    Sábado: 13.43°C
+    Domingo: 16.18°C
+  Semana 2:
+    Lunes: 16.15°C
+    Martes: 26.60°C
+    Miércoles: 12.76°C
+    Jueves: 28.32°C
+    Viernes: 20.99°C
+    Sábado: 13.40°C
+    Domingo: 27.46°C
+  Semana 3:
+    Lunes: 25.02°C
+    Martes: 10.53°C
+    Miércoles: 19.58°C
+    Jueves: 11.88°C
+    Viernes: 28.03°C
+    Sábado: 26.87°C
+    Domingo: 23.01°C
+  Semana 4:
+    Lunes: 27.70°C
+    Martes: 16.07°C
+    Miércoles: 28.11°C
+    Jueves: 24.10°C
+    Viernes: 24.99°C
+    Sábado: 18.95°C
+    Domingo: 23.55°C
+
+# Importamos el módulo random para generar temperaturas aleatorias
+import random
+
+# Definimos las ciudades y los días de la semana
+ciudades = ['BABAHOYO', 'GUAYAQUIL', 'MANTA', 'CUENCA']
+dias_semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
+num_semanas = 4  # Definimos el número de semanas
+
+# Creamos la matriz 3D para almacenar las temperaturas
+temperaturas = [[[random.uniform(10.0, 30.0) for _ in range(len(dias_semana))] for _ in range(num_semanas)] for _ in range(len(ciudades))]
+
+# Función para imprimir las temperaturas de manera estructurada
+def imprimir_temperaturas(temperaturas, ciudades, dias_semana):
+    for i, ciudad in enumerate(ciudades):
+        print(f"Temperaturas para {ciudad}:")
+        for semana in range(num_semanas):
+            print(f"  Semana {semana + 1}:")
+            for dia in range(len(dias_semana)):
+                print(f"    {dias_semana[dia]}: {temperaturas[i][semana][dia]:.2f}°C")
+        print()
+
+# Función para calcular y mostrar el promedio de temperaturas
+def calcular_promedios(temperaturas, ciudades):
+    for i, ciudad in enumerate(ciudades):
+        print(f"Promedios de temperaturas para {ciudad}:")
+        for semana in range(num_semanas):
+            suma_temperaturas = sum(temperaturas[i][semana])
+            promedio = suma_temperaturas / len(dias_semana)
+            print(f"  Semana {semana + 1}: {promedio:.2f}°C")
+        print()
+
+# Imprimimos las temperaturas generadas
+imprimir_temperaturas(temperaturas, ciudades, dias_semana)
+
+# Calculamos y mostramos los promedios de temperaturas
+calcular_promedios(temperaturas, ciudades)
