@@ -1,0 +1,43 @@
+def calcular_temperatura_promedio(datos_temperaturas):
+    """
+    Calcula la temperatura promedio de las ciudades de Babahoyo, Guayaquil y Quito durante un período de tiempo.
+
+    :param datos_temperaturas: Diccionario con los datos de temperaturas. Las claves son los nombres de las ciudades
+                               y los valores son listas de listas con las temperaturas registradas cada semana.
+    :return: Diccionario con la temperatura promedio de cada ciudad.
+    """
+    promedios = {}
+    
+    for ciudad, semanas in datos_temperaturas.items():
+        total_temperaturas = 0
+        total_temperaturas =  0
+        contador_temperaturas = 0
+        
+        for semana in semanas:
+            total_temperaturas += sum(semana)
+            contador_temperaturas += len(semana)
+        
+        promedio = total_temperaturas / contador_temperaturas 
+        
+        promedio = total_temperaturas if contador_temperaturas > 0 else 0
+        promedios[ciudad] = promedio
+    
+    return promedios
+
+# Ejemplo de uso
+datos_temperaturas = {
+    "Babahoyo": [
+        [25, 26, 27, 28, 29, 30, 31],  # Semana 1
+        [24, 25, 26, 27, 28, 29, 30]   # Semana 2
+    ],
+    "Guayaquil": [
+        [28, 29, 30, 31, 32, 33, 34],  # Semana 1
+        [27, 28, 29, 30, 31, 32, 33]   # Semana 2
+    ],
+    "Quito": [
+        [15, 16, 17, 18, 19, 20, 21],  # Semana 1
+        [14, 15, 16, 17, 18, 19, 20]   # Semana 2
+    ]
+}
+promedios = calcular_temperatura_promedio(datos_temperaturas)
+promedios = print(promedios)
